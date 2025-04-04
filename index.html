@@ -134,7 +134,7 @@
         }
         
         /* Pizza Grid - Ahora horizontal */
-        .pizza-container {
+        .pizza-container, .snacks-container {
             width: 100%;
             overflow-x: auto;
             padding-bottom: 20px;
@@ -142,14 +142,14 @@
             -webkit-overflow-scrolling: touch;
         }
         
-        .pizza-grid {
+        .pizza-grid, .snacks-grid {
             display: flex;
             gap: 25px;
             padding: 10px 0;
             width: max-content;
         }
         
-        .pizza-card {
+        .pizza-card, .snack-card {
             background-color: var(--white);
             border-radius: 15px;
             overflow: hidden;
@@ -163,16 +163,16 @@
             transition: all 0.5s ease;
         }
         
-        .pizza-card.visible {
+        .pizza-card.visible, .snack-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
-        .pizza-card:hover {
+        .pizza-card:hover, .snack-card:hover {
             transform: translateY(-5px);
         }
         
-        .pizza-image {
+        .pizza-image, .snack-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
@@ -182,7 +182,7 @@
             loading: lazy;
         }
         
-        .pizza-image::after {
+        .pizza-image::after, .snack-image::after {
             content: "";
             position: absolute;
             top: 0;
@@ -194,7 +194,7 @@
             animation: loading 1.5s infinite;
         }
         
-        .pizza-image.loaded::after {
+        .pizza-image.loaded::after, .snack-image.loaded::after {
             display: none;
         }
         
@@ -203,25 +203,25 @@
             100% { background-position: -200% 0; }
         }
         
-        .pizza-content {
+        .pizza-content, .snack-content {
             padding: 20px;
         }
         
-        .pizza-name {
+        .pizza-name, .snack-name {
             font-size: 1.4rem;
             color: var(--primary-color);
             margin-bottom: 10px;
             font-weight: 700;
         }
         
-        .pizza-ingredients {
+        .pizza-ingredients, .snack-description {
             color: var(--text-color);
             margin-bottom: 15px;
             font-size: 0.95rem;
             min-height: 60px;
         }
         
-        .pizza-prices {
+        .pizza-prices, .snack-prices {
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -433,21 +433,25 @@
         }
         
         /* Scrollbar personalizada */
-        .pizza-container::-webkit-scrollbar {
+        .pizza-container::-webkit-scrollbar,
+        .snacks-container::-webkit-scrollbar {
             height: 8px;
         }
         
-        .pizza-container::-webkit-scrollbar-track {
+        .pizza-container::-webkit-scrollbar-track,
+        .snacks-container::-webkit-scrollbar-track {
             background: #f1f1f1;
             border-radius: 10px;
         }
         
-        .pizza-container::-webkit-scrollbar-thumb {
+        .pizza-container::-webkit-scrollbar-thumb,
+        .snacks-container::-webkit-scrollbar-thumb {
             background: var(--primary-color);
             border-radius: 10px;
         }
         
-        .pizza-container::-webkit-scrollbar-thumb:hover {
+        .pizza-container::-webkit-scrollbar-thumb:hover,
+        .snacks-container::-webkit-scrollbar-thumb:hover {
             background: #b71c1c;
         }
         
@@ -461,7 +465,7 @@
                 font-size: 1.8rem;
             }
             
-            .pizza-card {
+            .pizza-card, .snack-card {
                 width: 280px;
             }
             
@@ -492,12 +496,12 @@
                 color: #f5f5f5;
             }
             
-            .pizza-card, .combinations, .cart {
+            .pizza-card, .combinations, .cart, .snack-card {
                 background-color: #1e1e1e;
                 color: #f5f5f5;
             }
             
-            .pizza-ingredients {
+            .pizza-ingredients, .snack-description {
                 color: #ccc;
             }
             
@@ -520,7 +524,8 @@
                 background-color: #444;
             }
             
-            .pizza-container::-webkit-scrollbar-track {
+            .pizza-container::-webkit-scrollbar-track,
+            .snacks-container::-webkit-scrollbar-track {
                 background: #2d2d2d;
             }
         }
@@ -779,6 +784,173 @@
                 </div>
             </div>
 
+            <!-- Nueva sección de Snacks, Postres y Bebidas -->
+            <div class="snacks-container">
+                <h2 class="section-title">SNACKS, POSTRES Y BEBIDAS</h2>
+                <div class="snacks-grid">
+                    <!-- Hotdog Sencillo -->
+                    <div class="snack-card" data-category="snacks">
+                        <img src="https://i.ibb.co/FkfmDcMH/HCENCILLO.jpg" alt="Hotdog Sencillo" class="snack-image" loading="lazy">
+                        <div class="snack-content">
+                            <h3 class="snack-name">HOTDOG SENCILLO</h3>
+                            <p class="snack-description">Delicioso hotdog con todos los ingredientes tradicionales</p>
+                            <div class="rating">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <div class="snack-prices">
+                                <div class="price-row">
+                                    <span class="price-label">UNIDAD</span>
+                                    <span class="price-value">$30</span>
+                                    <button class="add-to-cart" data-name="Hotdog Sencillo" data-size="Unidad" data-price="30">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hotdog con Tocino -->
+                    <div class="snack-card" data-category="snacks">
+                        <img src="https://i.ibb.co/v4gCvStq/HTOCINO.jpg" alt="Hotdog con Tocino" class="snack-image" loading="lazy">
+                        <div class="snack-content">
+                            <h3 class="snack-name">HOTDOG CON TOCINO</h3>
+                            <p class="snack-description">Hotdog con crujiente tocino y todos los ingredientes tradicionales</p>
+                            <div class="rating">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <div class="snack-prices">
+                                <div class="price-row">
+                                    <span class="price-label">UNIDAD</span>
+                                    <span class="price-value">$35</span>
+                                    <button class="add-to-cart" data-name="Hotdog con Tocino" data-size="Unidad" data-price="35">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nachos -->
+                    <div class="snack-card" data-category="snacks">
+                        <img src="https://i.ibb.co/HT7c0khB/NACHOS.jpg" alt="Nachos" class="snack-image" loading="lazy">
+                        <div class="snack-content">
+                            <h3 class="snack-name">NACHOS</h3>
+                            <p class="snack-description">Crujientes nachos con queso derretido y guacamole</p>
+                            <div class="rating">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <div class="snack-prices">
+                                <div class="price-row">
+                                    <span class="price-label">PORCIÓN</span>
+                                    <span class="price-value">$35</span>
+                                    <button class="add-to-cart" data-name="Nachos" data-size="Porción" data-price="35">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nuggets -->
+                    <div class="snack-card" data-category="snacks">
+                        <img src="https://i.ibb.co/Nn9ygSDT/NUGGETS.jpg" alt="Nuggets" class="snack-image" loading="lazy">
+                        <div class="snack-content">
+                            <h3 class="snack-name">NUGGETS</h3>
+                            <p class="snack-description">Crujientes nuggets de pollo acompañados de salsa</p>
+                            <div class="rating">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <div class="snack-prices">
+                                <div class="price-row">
+                                    <span class="price-label">PORCIÓN</span>
+                                    <span class="price-value">$40</span>
+                                    <button class="add-to-cart" data-name="Nuggets" data-size="Porción" data-price="40">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pay de Limón -->
+                    <div class="snack-card" data-category="postres">
+                        <img src="https://i.ibb.co/LhYNWXN1/PAY.jpg" alt="Pay de Limón" class="snack-image" loading="lazy">
+                        <div class="snack-content">
+                            <h3 class="snack-name">PAY DE LIMÓN</h3>
+                            <p class="snack-description">Delicioso pay de limón con base de galleta</p>
+                            <div class="rating">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <div class="snack-prices">
+                                <div class="price-row">
+                                    <span class="price-label">PORCIÓN</span>
+                                    <span class="price-value">$30</span>
+                                    <button class="add-to-cart" data-name="Pay de Limón" data-size="Porción" data-price="30">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Refresco Chico -->
+                    <div class="snack-card" data-category="bebidas">
+                        <img src="https://i.ibb.co/35ZwNQMZ/RCHICO.jpg" alt="Refresco Chico" class="snack-image" loading="lazy">
+                        <div class="snack-content">
+                            <h3 class="snack-name">REFRESCO CHICO</h3>
+                            <p class="snack-description">Refresco de 355ml en varios sabores</p>
+                            <div class="rating">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <div class="snack-prices">
+                                <div class="price-row">
+                                    <span class="price-label">355ml</span>
+                                    <span class="price-value">$20</span>
+                                    <button class="add-to-cart" data-name="Refresco Chico" data-size="355ml" data-price="20">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Refresco Grande -->
+                    <div class="snack-card" data-category="bebidas">
+                        <img src="https://i.ibb.co/Y7QYd57k/RGRANDE.jpg" alt="Refresco Grande" class="snack-image" loading="lazy">
+                        <div class="snack-content">
+                            <h3 class="snack-name">REFRESCO GRANDE</h3>
+                            <p class="snack-description">Refresco de 600ml en varios sabores</p>
+                            <div class="rating">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <div class="snack-prices">
+                                <div class="price-row">
+                                    <span class="price-label">600ml</span>
+                                    <span class="price-value">$35</span>
+                                    <button class="add-to-cart" data-name="Refresco Grande" data-size="600ml" data-price="35">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Combinations Section -->
             <div class="combinations">
                 <h2 class="section-title">COMBINACIONES MITAD Y MITAD</h2>
@@ -852,8 +1024,8 @@
                 'Dashuri\'s (Pera)': { 'Grande': 155, 'Familiar': 175 }
             };
             
-            // Animación de aparición de las pizzas
-            const pizzaCards = document.querySelectorAll('.pizza-card');
+            // Animación de aparición de las pizzas y snacks
+            const pizzaCards = document.querySelectorAll('.pizza-card, .snack-card');
             pizzaCards.forEach((card, index) => {
                 setTimeout(() => {
                     card.classList.add('visible');
@@ -861,7 +1033,7 @@
             });
             
             // Cargador de imágenes
-            document.querySelectorAll('.pizza-image').forEach(img => {
+            document.querySelectorAll('.pizza-image, .snack-image').forEach(img => {
                 img.onload = function() {
                     this.classList.add('loaded');
                 };
@@ -872,11 +1044,11 @@
             document.querySelectorAll('.star').forEach(star => {
                 star.addEventListener('click', function() {
                     const value = this.dataset.value;
-                    const pizzaName = this.closest('.pizza-card').querySelector('.pizza-name').textContent;
-                    alert(`¡Gracias por valorar la ${pizzaName} con ${value} estrellas!`);
+                    const productName = this.closest('.pizza-card, .snack-card').querySelector('.pizza-name, .snack-name').textContent;
+                    alert(`¡Gracias por valorar ${productName} con ${value} estrellas!`);
                     
                     // Aquí podrías enviar esta información a tu backend
-                    // Ejemplo: saveRating(pizzaName, value);
+                    // Ejemplo: saveRating(productName, value);
                 });
                 
                 star.addEventListener('mouseover', function() {
@@ -893,7 +1065,7 @@
                 });
             });
             
-            // Añadir pizzas individuales al carrito
+            // Añadir productos al carrito
             addToCartButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const name = this.getAttribute('data-name');
