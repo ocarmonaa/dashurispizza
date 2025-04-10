@@ -4,6 +4,7 @@ class ShoppingCart {
         this.notificationContainer = document.createElement('div');
         this.notificationContainer.className = 'notification-container';
         document.body.appendChild(this.notificationContainer);
+        this.setupModal();
     }
 
     addItem(name, price) {
@@ -35,10 +36,8 @@ class ShoppingCart {
         const cartTotalElement = document.getElementById('cart-total');
         const cartCount = document.getElementById('cartCount');
 
-        // Actualizar contador
         cartCount.textContent = this.items.length;
         
-        // Animación del contador
         if (this.items.length > 0) {
             cartCount.style.transform = 'scale(1.2)';
             setTimeout(() => {
@@ -46,9 +45,8 @@ class ShoppingCart {
             }, 300);
         }
 
-        // Actualizar lista de items
         if (this.items.length === 0) {
-            cartItemsElement.innerHTML = '<div class="empty-cart">Tu carrito está vacío</div>';
+            cartItemsElement.innerHTML = '<div class="empty-cart shake">Tu carrito está vacío</div>';
             cartTotalElement.style.display = 'none';
             return;
         }
@@ -65,7 +63,6 @@ class ShoppingCart {
             cartItemsElement.appendChild(itemElement);
         });
 
-        // Actualizar total
         cartTotalElement.textContent = `Total: $${this.calculateTotal().toFixed(2)}`;
         cartTotalElement.style.display = 'block';
     }
@@ -101,6 +98,71 @@ class ShoppingCart {
             }, 2500);
         }, 10);
     }
+
+    setupModal() {
+        this.modal = document.createElement('div');
+        this.modal.className = 'image-modal';
+        this.modal.innerHTML = `
+            <span class="close-modal" tabindex="0" aria-label="Cerrar imagen">&times;</span>
+            <img src="" alt="Imagen ampliada">
+        `;
+        document.body.appendChild(this.modal);
+
+        this.modal.querySelector('.close-modal').addEventListener('click', () => {
+            this.modal.classList.remove('active');
+        });
+
+        this.modal.addEventListener('click', (e) => {
+            if (e.target === this.modal) {
+                this.modal.classList.remove('active');
+            }
+        });
+
+        document.querySelectorAll('.pizza-image, .snack-image').forEach(img => {
+            img.addEventListener('click', () => {
+                if (!img.src) return;
+                this.modal.querySelector('img').src = img.src;
+                this.modal.querySelector('img').alt = img.alt;
+                this.modal.classList.add('active');
+            });
+        });
+    }
+
+    sendWhatsAppOrder() {
+        if (this.items.length === 0) {
+            this.showNotification('🛒 Tu carrito está vacío');
+            return;
+        }
+        
+        let message = `¡Hola Dashuri's Pizza! Quiero hacer un pedido:\n\n*Mi pedido*\n`;
+        
+        this.items.forEach(item => {
+            message += `- ${item.name}: $${item.price.toFixed(2)}\n`;
+        });
+        
+        message += `\n*Total: $${this.calculateTotal().toFixed(2)}*\n\n`;
+        message += `*Instrucciones especiales:* \n\n`;
+        message += `*Por favor confírmenme el pedido y tiempo estimado de entrega*`;
+        
+        const phoneNumber = '7226834501';
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+        window.open(whatsappUrl, '_blank');
+    }
+
+    scrollToCart() {
+        const cartElement = document.querySelector('.cart');
+        cartElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        cartElement.style.boxShadow = '0 0 15px rgba(211, 47, 47, 0.5)';
+        setTimeout(() => {
+            cartElement.style.boxShadow = 'var(--shadow-sm)';
+        }, 1000);
+    }
 }
 
 class PizzaApp {
@@ -117,6 +179,7 @@ class PizzaApp {
             'Dashuri\'s (Pera)': { 'Grande': 155, 'Familiar': 175 }
         };
         
+        this.bestSellers = ['Pepperoni', 'Hawaiana', 'Argentina'];
         this.init();
     }
 
@@ -126,10 +189,36 @@ class PizzaApp {
         this.setupImageLazyLoading();
         this.setupRatingSystem();
         this.cart.loadFromLocalStorage();
+        this.addBestSellerBadges();
+        this.setupKeyboardNavigation();
+    }
+
+    addBestSellerBadges() {
+        document.querySelectorAll('.pizza-card, .snack-card').forEach(card => {
+            const name = card.querySelector('.pizza-name, .snack-name').textContent;
+            if (this.bestSellers.includes(name)) {
+                const badge = document.createElement('div');
+                badge.className = 'badge';
+                badge.textContent = 'Más vendido';
+                badge.setAttribute('aria-label', 'Producto más vendido');
+                card.insertBefore(badge, card.firstChild);
+            }
+        });
+    }
+
+    setupKeyboardNavigation() {
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
     }
 
     setupEventListeners() {
-        // Delegación de eventos para el carrito
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('add-to-cart')) {
                 this.handleAddToCart(e.target);
@@ -141,19 +230,22 @@ class PizzaApp {
             }
         });
 
-        // Combinación mitad y mitad
         document.getElementById('add-combination').addEventListener('click', () => {
             this.handleAddCombination();
         });
 
-        // Enviar pedido por WhatsApp
         document.getElementById('send-order').addEventListener('click', () => {
-            this.sendWhatsAppOrder();
+            this.cart.sendWhatsAppOrder();
         });
 
-        // Carrito flotante
         document.getElementById('floatingCart').addEventListener('click', () => {
-            this.scrollToCart();
+            this.cart.scrollToCart();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelector('.image-modal')?.classList.remove('active');
+            }
         });
     }
 
@@ -182,7 +274,6 @@ class PizzaApp {
         
         this.cart.addItem(`Mitad ${firstHalf} / Mitad ${secondHalf} (${size})`, price);
         
-        // Limpiar selección
         document.getElementById('first-half').value = '';
         document.getElementById('second-half').value = '';
         document.getElementById('combination-size').value = '';
@@ -218,7 +309,7 @@ class PizzaApp {
                 }
             });
         }, {
-            rootMargin: '200px' // Carga imágenes antes de que sean visibles
+            rootMargin: '200px'
         });
 
         document.querySelectorAll('[data-src]').forEach(img => {
@@ -248,46 +339,18 @@ class PizzaApp {
             });
         });
     }
-
-    scrollToCart() {
-        const cartElement = document.querySelector('.cart');
-        cartElement.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-        });
-        
-        // Efecto visual
-        cartElement.style.boxShadow = '0 0 15px rgba(211, 47, 47, 0.5)';
-        setTimeout(() => {
-            cartElement.style.boxShadow = 'var(--shadow-sm)';
-        }, 1000);
-    }
-
-    sendWhatsAppOrder() {
-        if (this.cart.items.length === 0) {
-            this.cart.showNotification('🛒 Tu carrito está vacío');
-            return;
-        }
-        
-        let message = `¡Hola Dashuri's Pizza! Quiero hacer un pedido:\n\n*Mi pedido*\n`;
-        
-        this.cart.items.forEach(item => {
-            message += `- ${item.name}: $${item.price.toFixed(2)}\n`;
-        });
-        
-        message += `\n*Total: $${this.cart.calculateTotal().toFixed(2)}*\n\n`;
-        //message += `*Instrucciones especiales:* \n\n`;
-        //message += `*Por favor confírmenme el pedido y tiempo estimado de entrega*`;
-        
-        const phoneNumber = '7226834501';
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-        
-        window.open(whatsappUrl, '_blank');
-    }
 }
 
-// Inicializar la aplicación cuando el DOM esté listo
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('ServiceWorker registration successful');
+        }).catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const app = new PizzaApp();
 });
