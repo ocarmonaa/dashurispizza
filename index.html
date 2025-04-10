@@ -4,27 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashuri's Pizza</title>
-    <!-- Font Awesome para iconos -->
+    <meta name="theme-color" content="#d32f2f">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <!-- Carrito flotante -->
     <div class="floating-cart" id="floatingCart">
         <div class="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
             <span class="cart-count" id="cartCount">0</span>
         </div>
     </div>
 
     <div class="container">
         <header class="header">
-            <!-- Imagen de encabezado -->
-            <img src="https://i.ibb.co/1Gg1vjm8/ENCABEZADO.jpg" alt="Pizzas Dashuri's" class="header-image">
+            <img data-src="https://i.ibb.co/1Gg1vjm8/ENCABEZADO.jpg" alt="Pizzas Dashuri's" class="header-image" loading="lazy">
             <div class="header-content">
                 <div class="logo">
-                    <!-- Logo -->
-                    <img src="https://i.ibb.co/VWmm1tV9/LOGO.jpg" alt="Logo Dashuri's Pizza">
+                    <img data-src="https://i.ibb.co/VWmm1tV9/LOGO.jpg" alt="Logo Dashuri's Pizza" loading="lazy">
                     <h1>DASHURI'S PIZZA</h1>
                     <p class="slogan">El bocado perfecto</p>
                 </div>
@@ -32,408 +31,442 @@
         </header>
 
         <main>
-            <!-- Contenedor de pizzas con scroll horizontal -->
-            <div class="pizza-container">
+            <!-- Sección de Pizzas -->
+            <section class="menu-section">
                 <h2 class="section-title">PIZZAS ESTILO NEW YORK</h2>
-                <div class="pizza-grid">
-                    <!-- Pizza 1: Pepperoni - Carnes -->
-                    <div class="pizza-card" data-category="carnes">
-                        <img src="https://i.ibb.co/jZ4J5jDp/PEPPERONI.jpg" alt="Pizza Pepperoni" class="pizza-image" loading="lazy">
-                        <div class="pizza-content">
-                            <h3 class="pizza-name">PEPPERONI</h3>
-                            <p class="pizza-ingredients">Queso mozzarella y pepperoni</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="pizza-prices">
-                                <div class="price-row">
-                                    <span class="price-label">GRANDE</span>
-                                    <span class="price-value">$140</span>
-                                    <button class="add-to-cart" data-name="Pepperoni" data-size="Grande" data-price="140">+</button>
+                <div class="pizza-container">
+                    <div class="pizza-grid">
+                        <!-- Pizza 1: Pepperoni -->
+                        <article class="pizza-card" data-category="carnes">
+                            <img data-src="https://i.ibb.co/jZ4J5jDp/PEPPERONI.jpg" alt="Pizza Pepperoni" class="pizza-image" loading="lazy">
+                            <div class="pizza-content">
+                                <header>
+                                    <h3 class="pizza-name">PEPPERONI</h3>
+                                </header>
+                                <p class="pizza-ingredients">Queso mozzarella y pepperoni</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
                                 </div>
-                                <div class="price-row">
-                                    <span class="price-label">FAMILIAR</span>
-                                    <span class="price-value">$160</span>
-                                    <button class="add-to-cart" data-name="Pepperoni" data-size="Familiar" data-price="160">+</button>
+                                <div class="pizza-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">GRANDE</span>
+                                        <span class="price-value">$140</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Pepperoni" data-size="Grande" data-price="140" aria-label="Añadir Pepperoni Grande al carrito">+</button>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">FAMILIAR</span>
+                                        <span class="price-value">$160</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Pepperoni" data-size="Familiar" data-price="160" aria-label="Añadir Pepperoni Familiar al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Pizza 2: Hawaiana - Carnes -->
-                    <div class="pizza-card" data-category="carnes">
-                        <img src="https://i.ibb.co/W9drVpg/HAWAIANA.jpg" alt="Pizza Hawaiana" class="pizza-image" loading="lazy">
-                        <div class="pizza-content">
-                            <h3 class="pizza-name">HAWAIANA</h3>
-                            <p class="pizza-ingredients">Queso mozzarella, jamón y piña</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="pizza-prices">
-                                <div class="price-row">
-                                    <span class="price-label">GRANDE</span>
-                                    <span class="price-value">$155</span>
-                                    <button class="add-to-cart" data-name="Hawaiana" data-size="Grande" data-price="155">+</button>
+                        <!-- Pizza 2: Hawaiana -->
+                        <article class="pizza-card" data-category="carnes">
+                            <img data-src="https://i.ibb.co/W9drVpg/HAWAIANA.jpg" alt="Pizza Hawaiana" class="pizza-image" loading="lazy">
+                            <div class="pizza-content">
+                                <header>
+                                    <h3 class="pizza-name">HAWAIANA</h3>
+                                </header>
+                                <p class="pizza-ingredients">Queso mozzarella, jamón y piña</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
                                 </div>
-                                <div class="price-row">
-                                    <span class="price-label">FAMILIAR</span>
-                                    <span class="price-value">$175</span>
-                                    <button class="add-to-cart" data-name="Hawaiana" data-size="Familiar" data-price="175">+</button>
+                                <div class="pizza-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">GRANDE</span>
+                                        <span class="price-value">$155</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Hawaiana" data-size="Grande" data-price="155" aria-label="Añadir Hawaiana Grande al carrito">+</button>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">FAMILIAR</span>
+                                        <span class="price-value">$175</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Hawaiana" data-size="Familiar" data-price="175" aria-label="Añadir Hawaiana Familiar al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Pizza 3: Margarita - Vegetales -->
-                    <div class="pizza-card" data-category="vegetales">
-                        <img src="https://i.ibb.co/274Nhxng/MARGARITA.jpg" alt="Pizza Margarita" class="pizza-image" loading="lazy">
-                        <div class="pizza-content">
-                            <h3 class="pizza-name">MARGARITA</h3>
-                            <p class="pizza-ingredients">Queso mozzarella, jitomate, albahaca, aceituna negra, queso de cabra</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="pizza-prices">
-                                <div class="price-row">
-                                    <span class="price-label">GRANDE</span>
-                                    <span class="price-value">$155</span>
-                                    <button class="add-to-cart" data-name="Margarita" data-size="Grande" data-price="155">+</button>
+                        <!-- Pizza 3: Margarita -->
+                        <article class="pizza-card" data-category="vegetales">
+                            <img data-src="https://i.ibb.co/274Nhxng/MARGARITA.jpg" alt="Pizza Margarita" class="pizza-image" loading="lazy">
+                            <div class="pizza-content">
+                                <header>
+                                    <h3 class="pizza-name">MARGARITA</h3>
+                                </header>
+                                <p class="pizza-ingredients">Queso mozzarella, jitomate, albahaca, aceituna negra, queso de cabra</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
                                 </div>
-                                <div class="price-row">
-                                    <span class="price-label">FAMILIAR</span>
-                                    <span class="price-value">$175</span>
-                                    <button class="add-to-cart" data-name="Margarita" data-size="Familiar" data-price="175">+</button>
+                                <div class="pizza-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">GRANDE</span>
+                                        <span class="price-value">$155</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Margarita" data-size="Grande" data-price="155" aria-label="Añadir Margarita Grande al carrito">+</button>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">FAMILIAR</span>
+                                        <span class="price-value">$175</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Margarita" data-size="Familiar" data-price="175" aria-label="Añadir Margarita Familiar al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Pizza 4: Argentina - Carnes -->
-                    <div class="pizza-card" data-category="carnes">
-                        <img src="https://i.ibb.co/hRbvR0QP/ARGENTINA.jpg" alt="Pizza Argentina" class="pizza-image" loading="lazy">
-                        <div class="pizza-content">
-                            <h3 class="pizza-name">ARGENTINA</h3>
-                            <p class="pizza-ingredients">Queso mozzarella, chorizo argentino, pimiento morrón y granos de elote</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="pizza-prices">
-                                <div class="price-row">
-                                    <span class="price-label">GRANDE</span>
-                                    <span class="price-value">$165</span>
-                                    <button class="add-to-cart" data-name="Argentina" data-size="Grande" data-price="165">+</button>
+                        <!-- Pizza 4: Argentina -->
+                        <article class="pizza-card" data-category="carnes">
+                            <img data-src="https://i.ibb.co/hRbvR0QP/ARGENTINA.jpg" alt="Pizza Argentina" class="pizza-image" loading="lazy">
+                            <div class="pizza-content">
+                                <header>
+                                    <h3 class="pizza-name">ARGENTINA</h3>
+                                </header>
+                                <p class="pizza-ingredients">Queso mozzarella, chorizo argentino, pimiento morrón y granos de elote</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
                                 </div>
-                                <div class="price-row">
-                                    <span class="price-label">FAMILIAR</span>
-                                    <span class="price-value">$185</span>
-                                    <button class="add-to-cart" data-name="Argentina" data-size="Familiar" data-price="185">+</button>
+                                <div class="pizza-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">GRANDE</span>
+                                        <span class="price-value">$165</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Argentina" data-size="Grande" data-price="165" aria-label="Añadir Argentina Grande al carrito">+</button>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">FAMILIAR</span>
+                                        <span class="price-value">$185</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Argentina" data-size="Familiar" data-price="185" aria-label="Añadir Argentina Familiar al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Pizza 5: Trópico - Mariscos -->
-                    <div class="pizza-card" data-category="mariscos">
-                        <img src="https://i.ibb.co/SwN4z45Y/TROPICO.jpg" alt="Pizza Trópico" class="pizza-image" loading="lazy">
-                        <div class="pizza-content">
-                            <h3 class="pizza-name">TRÓPICO</h3>
-                            <p class="pizza-ingredients">Queso mozzarella, camarón y piña</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="pizza-prices">
-                                <div class="price-row">
-                                    <span class="price-label">GRANDE</span>
-                                    <span class="price-value">$180</span>
-                                    <button class="add-to-cart" data-name="Trópico" data-size="Grande" data-price="180">+</button>
+                        <!-- Pizza 5: Trópico -->
+                        <article class="pizza-card" data-category="mariscos">
+                            <img data-src="https://i.ibb.co/SwN4z45Y/TROPICO.jpg" alt="Pizza Trópico" class="pizza-image" loading="lazy">
+                            <div class="pizza-content">
+                                <header>
+                                    <h3 class="pizza-name">TRÓPICO</h3>
+                                </header>
+                                <p class="pizza-ingredients">Queso mozzarella, camarón y piña</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
                                 </div>
-                                <div class="price-row">
-                                    <span class="price-label">FAMILIAR</span>
-                                    <span class="price-value">$200</span>
-                                    <button class="add-to-cart" data-name="Trópico" data-size="Familiar" data-price="200">+</button>
+                                <div class="pizza-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">GRANDE</span>
+                                        <span class="price-value">$180</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Trópico" data-size="Grande" data-price="180" aria-label="Añadir Trópico Grande al carrito">+</button>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">FAMILIAR</span>
+                                        <span class="price-value">$200</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Trópico" data-size="Familiar" data-price="200" aria-label="Añadir Trópico Familiar al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Pizza 6: 5 Quesos - Quesos -->
-                    <div class="pizza-card" data-category="quesos">
-                        <img src="https://i.ibb.co/bg84JfYr/5-QUESOS.jpg" alt="Pizza 5 Quesos" class="pizza-image" loading="lazy">
-                        <div class="pizza-content">
-                            <h3 class="pizza-name">5 QUESOS</h3>
-                            <p class="pizza-ingredients">Quesos mozzarella, cheddar, suizo, gouda y havarti</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="pizza-prices">
-                                <div class="price-row">
-                                    <span class="price-label">GRANDE</span>
-                                    <span class="price-value">$165</span>
-                                    <button class="add-to-cart" data-name="5 Quesos" data-size="Grande" data-price="165">+</button>
+                        <!-- Pizza 6: 5 Quesos -->
+                        <article class="pizza-card" data-category="quesos">
+                            <img data-src="https://i.ibb.co/bg84JfYr/5-QUESOS.jpg" alt="Pizza 5 Quesos" class="pizza-image" loading="lazy">
+                            <div class="pizza-content">
+                                <header>
+                                    <h3 class="pizza-name">5 QUESOS</h3>
+                                </header>
+                                <p class="pizza-ingredients">Quesos mozzarella, cheddar, suizo, gouda y havarti</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
                                 </div>
-                                <div class="price-row">
-                                    <span class="price-label">FAMILIAR</span>
-                                    <span class="price-value">$185</span>
-                                    <button class="add-to-cart" data-name="5 Quesos" data-size="Familiar" data-price="185">+</button>
+                                <div class="pizza-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">GRANDE</span>
+                                        <span class="price-value">$165</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="5 Quesos" data-size="Grande" data-price="165" aria-label="Añadir 5 Quesos Grande al carrito">+</button>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">FAMILIAR</span>
+                                        <span class="price-value">$185</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="5 Quesos" data-size="Familiar" data-price="185" aria-label="Añadir 5 Quesos Familiar al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Pizza 7: Suprema - Carnes y Especiales -->
-                    <div class="pizza-card" data-category="carnes especiales">
-                        <img src="https://i.ibb.co/YFKc2n9h/SUPREMA.jpg" alt="Pizza Suprema" class="pizza-image" loading="lazy">
-                        <div class="pizza-content">
-                            <h3 class="pizza-name">SUPREMA</h3>
-                            <p class="pizza-ingredients">Queso mozzarella, jamón serrano, arúgula, aceituna negra, jitomate cherry</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="pizza-prices">
-                                <div class="price-row">
-                                    <span class="price-label">GRANDE</span>
-                                    <span class="price-value">$180</span>
-                                    <button class="add-to-cart" data-name="Suprema" data-size="Grande" data-price="180">+</button>
+                        <!-- Pizza 7: Suprema -->
+                        <article class="pizza-card" data-category="especiales">
+                            <img data-src="https://i.ibb.co/YFKc2n9h/SUPREMA.jpg" alt="Pizza Suprema" class="pizza-image" loading="lazy">
+                            <div class="pizza-content">
+                                <header>
+                                    <h3 class="pizza-name">SUPREMA</h3>
+                                </header>
+                                <p class="pizza-ingredients">Queso mozzarella, jamón serrano, arúgula, aceituna negra, jitomate cherry</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
                                 </div>
-                                <div class="price-row">
-                                    <span class="price-label">FAMILIAR</span>
-                                    <span class="price-value">$200</span>
-                                    <button class="add-to-cart" data-name="Suprema" data-size="Familiar" data-price="200">+</button>
+                                <div class="pizza-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">GRANDE</span>
+                                        <span class="price-value">$180</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Suprema" data-size="Grande" data-price="180" aria-label="Añadir Suprema Grande al carrito">+</button>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">FAMILIAR</span>
+                                        <span class="price-value">$200</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Suprema" data-size="Familiar" data-price="200" aria-label="Añadir Suprema Familiar al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Pizza 8: Dashuri's - Dulces -->
-                    <div class="pizza-card" data-category="dulces">
-                        <img src="https://i.ibb.co/xKrwdZZh/DASHURIS.jpg" alt="Pizza Dashuri's" class="pizza-image" loading="lazy">
-                        <div class="pizza-content">
-                            <h3 class="pizza-name">DASHURI'S (PERA)</h3>
-                            <p class="pizza-ingredients">Pera, queso philadelphia, queso de cabra, nuez, azúcar mascabada y canela</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="pizza-prices">
-                                <div class="price-row">
-                                    <span class="price-label">GRANDE</span>
-                                    <span class="price-value">$155</span>
-                                    <button class="add-to-cart" data-name="Dashuri's (Pera)" data-size="Grande" data-price="155">+</button>
+                        <!-- Pizza 8: Dashuri's -->
+                        <article class="pizza-card" data-category="dulces">
+                            <img data-src="https://i.ibb.co/xKrwdZZh/DASHURIS.jpg" alt="Pizza Dashuri's" class="pizza-image" loading="lazy">
+                            <div class="pizza-content">
+                                <header>
+                                    <h3 class="pizza-name">DASHURI'S (PERA)</h3>
+                                </header>
+                                <p class="pizza-ingredients">Pera, queso philadelphia, queso de cabra, nuez, azúcar mascabada y canela</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
                                 </div>
-                                <div class="price-row">
-                                    <span class="price-label">FAMILIAR</span>
-                                    <span class="price-value">$175</span>
-                                    <button class="add-to-cart" data-name="Dashuri's (Pera)" data-size="Familiar" data-price="175">+</button>
+                                <div class="pizza-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">GRANDE</span>
+                                        <span class="price-value">$155</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Dashuri's (Pera)" data-size="Grande" data-price="155" aria-label="Añadir Dashuri's (Pera) Grande al carrito">+</button>
+                                    </div>
+                                    <div class="price-row">
+                                        <span class="price-label">FAMILIAR</span>
+                                        <span class="price-value">$175</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Dashuri's (Pera)" data-size="Familiar" data-price="175" aria-label="Añadir Dashuri's (Pera) Familiar al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Nueva sección de Snacks, Postres y Bebidas -->
-            <div class="snacks-container">
+            <!-- Sección de Snacks -->
+            <section class="menu-section">
                 <h2 class="section-title">SNACKS, POSTRES Y BEBIDAS</h2>
-                <div class="snacks-grid">
-                    <!-- Hotdog Sencillo -->
-                    <div class="snack-card" data-category="snacks">
-                        <img src="https://i.ibb.co/FkfmDcMH/HCENCILLO.jpg" alt="Hotdog Sencillo" class="snack-image" loading="lazy">
-                        <div class="snack-content">
-                            <h3 class="snack-name">HOTDOG SENCILLO</h3>
-                            <p class="snack-description">Delicioso hotdog con todos los ingredientes tradicionales</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="snack-prices">
-                                <div class="price-row">
-                                    <span class="price-label">UNIDAD</span>
-                                    <span class="price-value">$30</span>
-                                    <button class="add-to-cart" data-name="Hotdog Sencillo" data-size="Unidad" data-price="30">+</button>
+                <div class="snacks-container">
+                    <div class="snacks-grid">
+                        <!-- Hotdog Sencillo -->
+                        <article class="snack-card" data-category="snacks">
+                            <img data-src="https://i.ibb.co/FkfmDcMH/HCENCILLO.jpg" alt="Hotdog Sencillo" class="snack-image" loading="lazy">
+                            <div class="snack-content">
+                                <header>
+                                    <h3 class="snack-name">HOTDOG SENCILLO</h3>
+                                </header>
+                                <p class="snack-description">Delicioso hotdog con todos los ingredientes tradicionales</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                                <div class="snack-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">UNIDAD</span>
+                                        <span class="price-value">$30</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Hotdog Sencillo" data-size="Unidad" data-price="30" aria-label="Añadir Hotdog Sencillo al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Hotdog con Tocino -->
-                    <div class="snack-card" data-category="snacks">
-                        <img src="https://i.ibb.co/v4gCvStq/HTOCINO.jpg" alt="Hotdog con Tocino" class="snack-image" loading="lazy">
-                        <div class="snack-content">
-                            <h3 class="snack-name">HOTDOG CON TOCINO</h3>
-                            <p class="snack-description">Hotdog con crujiente tocino y todos los ingredientes tradicionales</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="snack-prices">
-                                <div class="price-row">
-                                    <span class="price-label">UNIDAD</span>
-                                    <span class="price-value">$35</span>
-                                    <button class="add-to-cart" data-name="Hotdog con Tocino" data-size="Unidad" data-price="35">+</button>
+                        <!-- Hotdog con Tocino -->
+                        <article class="snack-card" data-category="snacks">
+                            <img data-src="https://i.ibb.co/v4gCvStq/HTOCINO.jpg" alt="Hotdog con Tocino" class="snack-image" loading="lazy">
+                            <div class="snack-content">
+                                <header>
+                                    <h3 class="snack-name">HOTDOG CON TOCINO</h3>
+                                </header>
+                                <p class="snack-description">Hotdog con crujiente tocino y todos los ingredientes tradicionales</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                                <div class="snack-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">UNIDAD</span>
+                                        <span class="price-value">$35</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Hotdog con Tocino" data-size="Unidad" data-price="35" aria-label="Añadir Hotdog con Tocino al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Nachos -->
-                    <div class="snack-card" data-category="snacks">
-                        <img src="https://i.ibb.co/HT7c0khB/NACHOS.jpg" alt="Nachos" class="snack-image" loading="lazy">
-                        <div class="snack-content">
-                            <h3 class="snack-name">NACHOS</h3>
-                            <p class="snack-description">Crujientes nachos con queso derretido y chiles</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="snack-prices">
-                                <div class="price-row">
-                                    <span class="price-label">PORCIÓN</span>
-                                    <span class="price-value">$35</span>
-                                    <button class="add-to-cart" data-name="Nachos" data-size="Porción" data-price="35">+</button>
+                        <!-- Nachos -->
+                        <article class="snack-card" data-category="snacks">
+                            <img data-src="https://i.ibb.co/HT7c0khB/NACHOS.jpg" alt="Nachos" class="snack-image" loading="lazy">
+                            <div class="snack-content">
+                                <header>
+                                    <h3 class="snack-name">NACHOS</h3>
+                                </header>
+                                <p class="snack-description">Crujientes nachos con queso derretido y chiles</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                                <div class="snack-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">PORCIÓN</span>
+                                        <span class="price-value">$35</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Nachos" data-size="Porción" data-price="35" aria-label="Añadir Nachos al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Nuggets -->
-                    <div class="snack-card" data-category="snacks">
-                        <img src="https://i.ibb.co/Nn9ygSDT/NUGGETS.jpg" alt="Nuggets" class="snack-image" loading="lazy">
-                        <div class="snack-content">
-                            <h3 class="snack-name">NUGGETS</h3>
-                            <p class="snack-description">Crujientes nuggets de pollo acompañados de salsa catsup</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="snack-prices">
-                                <div class="price-row">
-                                    <span class="price-label">PORCIÓN</span>
-                                    <span class="price-value">$40</span>
-                                    <button class="add-to-cart" data-name="Nuggets" data-size="Porción" data-price="40">+</button>
+                        <!-- Nuggets -->
+                        <article class="snack-card" data-category="snacks">
+                            <img data-src="https://i.ibb.co/Nn9ygSDT/NUGGETS.jpg" alt="Nuggets" class="snack-image" loading="lazy">
+                            <div class="snack-content">
+                                <header>
+                                    <h3 class="snack-name">NUGGETS</h3>
+                                </header>
+                                <p class="snack-description">Crujientes nuggets de pollo acompañados de salsa catsup</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                                <div class="snack-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">PORCIÓN</span>
+                                        <span class="price-value">$40</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Nuggets" data-size="Porción" data-price="40" aria-label="Añadir Nuggets al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Pay de Limón -->
-                    <div class="snack-card" data-category="postres">
-                        <img src="https://i.ibb.co/LhYNWXN1/PAY.jpg" alt="Pay de Limón" class="snack-image" loading="lazy">
-                        <div class="snack-content">
-                            <h3 class="snack-name">PAY DE LIMÓN</h3>
-                            <p class="snack-description">Delicioso pay de limón con base de galleta</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="snack-prices">
-                                <div class="price-row">
-                                    <span class="price-label">PORCIÓN</span>
-                                    <span class="price-value">$30</span>
-                                    <button class="add-to-cart" data-name="Pay de Limón" data-size="Porción" data-price="30">+</button>
+                        <!-- Pay de Limón -->
+                        <article class="snack-card" data-category="postres">
+                            <img data-src="https://i.ibb.co/LhYNWXN1/PAY.jpg" alt="Pay de Limón" class="snack-image" loading="lazy">
+                            <div class="snack-content">
+                                <header>
+                                    <h3 class="snack-name">PAY DE LIMÓN</h3>
+                                </header>
+                                <p class="snack-description">Delicioso pay de limón con base de galleta</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                                <div class="snack-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">PORCIÓN</span>
+                                        <span class="price-value">$30</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Pay de Limón" data-size="Porción" data-price="30" aria-label="Añadir Pay de Limón al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Refresco Chico -->
-                    <div class="snack-card" data-category="bebidas">
-                        <img src="https://i.ibb.co/35ZwNQMZ/RCHICO.jpg" alt="Refresco Chico" class="snack-image" loading="lazy">
-                        <div class="snack-content">
-                            <h3 class="snack-name">REFRESCO CHICO</h3>
-                            <p class="snack-description">Refresco de chico en varios sabores</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="snack-prices">
-                                <div class="price-row">
-                                    <span class="price-label">600ml</span>
-                                    <span class="price-value">$20</span>
-                                    <button class="add-to-cart" data-name="Refresco Chico" data-size="600ml" data-price="20">+</button>
+                        <!-- Refresco Chico -->
+                        <article class="snack-card" data-category="bebidas">
+                            <img data-src="https://i.ibb.co/35ZwNQMZ/RCHICO.jpg" alt="Refresco Chico" class="snack-image" loading="lazy">
+                            <div class="snack-content">
+                                <header>
+                                    <h3 class="snack-name">REFRESCO CHICO</h3>
+                                </header>
+                                <p class="snack-description">Refresco de chico en varios sabores</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                                <div class="snack-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">600ml</span>
+                                        <span class="price-value">$20</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Refresco Chico" data-size="600ml" data-price="20" aria-label="Añadir Refresco Chico al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- Refresco Grande -->
-                    <div class="snack-card" data-category="bebidas">
-                        <img src="https://i.ibb.co/Y7QYd57k/RGRANDE.jpg" alt="Refresco Grande" class="snack-image" loading="lazy">
-                        <div class="snack-content">
-                            <h3 class="snack-name">REFRESCO GRANDE</h3>
-                            <p class="snack-description">Refresco de 2lt en varios sabores</p>
-                            <div class="rating">
-                                <span class="star" data-value="1">★</span>
-                                <span class="star" data-value="2">★</span>
-                                <span class="star" data-value="3">★</span>
-                                <span class="star" data-value="4">★</span>
-                                <span class="star" data-value="5">★</span>
-                            </div>
-                            <div class="snack-prices">
-                                <div class="price-row">
-                                    <span class="price-label">2lt</span>
-                                    <span class="price-value">$35</span>
-                                    <button class="add-to-cart" data-name="Refresco Grande" data-size="2lt" data-price="35">+</button>
+                        <!-- Refresco Grande -->
+                        <article class="snack-card" data-category="bebidas">
+                            <img data-src="https://i.ibb.co/Y7QYd57k/RGRANDE.jpg" alt="Refresco Grande" class="snack-image" loading="lazy">
+                            <div class="snack-content">
+                                <header>
+                                    <h3 class="snack-name">REFRESCO GRANDE</h3>
+                                </header>
+                                <p class="snack-description">Refresco de 2lt en varios sabores</p>
+                                <div class="rating">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                                <div class="snack-prices">
+                                    <div class="price-row">
+                                        <span class="price-label">2lt</span>
+                                        <span class="price-value">$35</span>
+                                        <button class="btn btn-primary add-to-cart" data-name="Refresco Grande" data-size="2lt" data-price="35" aria-label="Añadir Refresco Grande al carrito">+</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Combinations Section -->
-            <div class="combinations">
+            <!-- Sección de Combinaciones -->
+            <section class="combinations">
                 <h2 class="section-title">COMBINACIONES MITAD Y MITAD</h2>
                 <div class="combination-controls">
-                    <select id="first-half" class="combination-select">
+                    <select id="first-half" class="combination-select" aria-label="Seleccionar primera mitad">
                         <option value="">Selecciona primera mitad</option>
                         <option value="Pepperoni">Pepperoni</option>
                         <option value="Hawaiana">Hawaiana</option>
@@ -445,7 +478,7 @@
                         <option value="Dashuri's (Pera)">Dashuri's (Pera)</option>
                     </select>
                     
-                    <select id="second-half" class="combination-select">
+                    <select id="second-half" class="combination-select" aria-label="Seleccionar segunda mitad">
                         <option value="">Selecciona segunda mitad</option>
                         <option value="Pepperoni">Pepperoni</option>
                         <option value="Hawaiana">Hawaiana</option>
@@ -458,24 +491,24 @@
                     </select>
                 </div>
                 
-                <select id="combination-size" class="combination-select">
+                <select id="combination-size" class="combination-select" aria-label="Seleccionar tamaño">
                     <option value="">Selecciona tamaño</option>
                     <option value="Grande">Grande</option>
                     <option value="Familiar">Familiar</option>
                 </select>
                 
-                <button id="add-combination" class="add-combination">Añadir combinación al carrito</button>
-            </div>
+                <button id="add-combination" class="btn btn-secondary add-combination">Añadir combinación al carrito</button>
+            </section>
 
-            <!-- Shopping Cart -->
-            <div class="cart">
+            <!-- Carrito de Compras -->
+            <section class="cart">
                 <h2 class="section-title">TU PEDIDO</h2>
                 <div class="cart-items" id="cart-items">
                     <div class="empty-cart">Tu carrito está vacío</div>
                 </div>
                 <div class="cart-total" id="cart-total" style="display: none;">Total: $0</div>
-                <button class="send-order" id="send-order">ENVIAR PEDIDO POR WHATSAPP</button>
-            </div>
+                <button class="btn btn-success send-order" id="send-order">ENVIAR PEDIDO POR WHATSAPP</button>
+            </section>
         </main>
     </div>
 
