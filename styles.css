@@ -759,3 +759,32 @@ body {
         background: #2d2d2d;
     }
 }
+/* Fondo de página */
+body {
+    background: url('https://i.ibb.co/zHXGYr3X/fondo-2.jpg') center/cover fixed no-repeat;
+    background-color: rgba(0, 0, 0, 0.7); /* Oscurecer fondo */
+    background-blend-mode: overlay;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-lg);
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-xl);
+    max-width: 1200px;
+}
+
+/* Header sin fondo */
+.header {
+    background-color: transparent;
+}
+
+/* Centrar botón de WhatsApp */
+.send-order {
+    display: block;
+    margin: var(--spacing-lg) auto 0;
+    width: fit-content;
+    padding: var(--spacing-md) var(--spacing-xl);
+}
