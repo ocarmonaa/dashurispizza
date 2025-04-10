@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style">
 </head>
 <body>
     <!-- Carrito flotante -->
@@ -55,12 +57,12 @@
                                     <div class="price-row">
                                         <span class="price-label">GRANDE</span>
                                         <span class="price-value">$140</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Pepperoni" data-size="Grande" data-price="140" aria-label="Añadir Pepperoni Grande al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Pepperoni" data-size="Grande" data-price="140" aria-label="Añadir Pepperoni Grande al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                     <div class="price-row">
                                         <span class="price-label">FAMILIAR</span>
                                         <span class="price-value">$160</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Pepperoni" data-size="Familiar" data-price="160" aria-label="Añadir Pepperoni Familiar al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Pepperoni" data-size="Familiar" data-price="160" aria-label="Añadir Pepperoni Familiar al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -85,12 +87,12 @@
                                     <div class="price-row">
                                         <span class="price-label">GRANDE</span>
                                         <span class="price-value">$155</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Hawaiana" data-size="Grande" data-price="155" aria-label="Añadir Hawaiana Grande al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Hawaiana" data-size="Grande" data-price="155" aria-label="Añadir Hawaiana Grande al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                     <div class="price-row">
                                         <span class="price-label">FAMILIAR</span>
                                         <span class="price-value">$175</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Hawaiana" data-size="Familiar" data-price="175" aria-label="Añadir Hawaiana Familiar al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Hawaiana" data-size="Familiar" data-price="175" aria-label="Añadir Hawaiana Familiar al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -115,12 +117,12 @@
                                     <div class="price-row">
                                         <span class="price-label">GRANDE</span>
                                         <span class="price-value">$155</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Margarita" data-size="Grande" data-price="155" aria-label="Añadir Margarita Grande al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Margarita" data-size="Grande" data-price="155" aria-label="Añadir Margarita Grande al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                     <div class="price-row">
                                         <span class="price-label">FAMILIAR</span>
                                         <span class="price-value">$175</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Margarita" data-size="Familiar" data-price="175" aria-label="Añadir Margarita Familiar al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Margarita" data-size="Familiar" data-price="175" aria-label="Añadir Margarita Familiar al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -145,12 +147,12 @@
                                     <div class="price-row">
                                         <span class="price-label">GRANDE</span>
                                         <span class="price-value">$165</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Argentina" data-size="Grande" data-price="165" aria-label="Añadir Argentina Grande al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Argentina" data-size="Grande" data-price="165" aria-label="Añadir Argentina Grande al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                     <div class="price-row">
                                         <span class="price-label">FAMILIAR</span>
                                         <span class="price-value">$185</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Argentina" data-size="Familiar" data-price="185" aria-label="Añadir Argentina Familiar al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Argentina" data-size="Familiar" data-price="185" aria-label="Añadir Argentina Familiar al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -175,12 +177,12 @@
                                     <div class="price-row">
                                         <span class="price-label">GRANDE</span>
                                         <span class="price-value">$180</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Trópico" data-size="Grande" data-price="180" aria-label="Añadir Trópico Grande al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Trópico" data-size="Grande" data-price="180" aria-label="Añadir Trópico Grande al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                     <div class="price-row">
                                         <span class="price-label">FAMILIAR</span>
                                         <span class="price-value">$200</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Trópico" data-size="Familiar" data-price="200" aria-label="Añadir Trópico Familiar al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Trópico" data-size="Familiar" data-price="200" aria-label="Añadir Trópico Familiar al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -205,12 +207,12 @@
                                     <div class="price-row">
                                         <span class="price-label">GRANDE</span>
                                         <span class="price-value">$165</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="5 Quesos" data-size="Grande" data-price="165" aria-label="Añadir 5 Quesos Grande al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="5 Quesos" data-size="Grande" data-price="165" aria-label="Añadir 5 Quesos Grande al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                     <div class="price-row">
                                         <span class="price-label">FAMILIAR</span>
                                         <span class="price-value">$185</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="5 Quesos" data-size="Familiar" data-price="185" aria-label="Añadir 5 Quesos Familiar al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="5 Quesos" data-size="Familiar" data-price="185" aria-label="Añadir 5 Quesos Familiar al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -235,12 +237,12 @@
                                     <div class="price-row">
                                         <span class="price-label">GRANDE</span>
                                         <span class="price-value">$180</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Suprema" data-size="Grande" data-price="180" aria-label="Añadir Suprema Grande al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Suprema" data-size="Grande" data-price="180" aria-label="Añadir Suprema Grande al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                     <div class="price-row">
                                         <span class="price-label">FAMILIAR</span>
                                         <span class="price-value">$200</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Suprema" data-size="Familiar" data-price="200" aria-label="Añadir Suprema Familiar al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Suprema" data-size="Familiar" data-price="200" aria-label="Añadir Suprema Familiar al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -265,12 +267,12 @@
                                     <div class="price-row">
                                         <span class="price-label">GRANDE</span>
                                         <span class="price-value">$155</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Dashuri's (Pera)" data-size="Grande" data-price="155" aria-label="Añadir Dashuri's (Pera) Grande al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Dashuri's (Pera)" data-size="Grande" data-price="155" aria-label="Añadir Dashuri's (Pera) Grande al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                     <div class="price-row">
                                         <span class="price-label">FAMILIAR</span>
                                         <span class="price-value">$175</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Dashuri's (Pera)" data-size="Familiar" data-price="175" aria-label="Añadir Dashuri's (Pera) Familiar al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Dashuri's (Pera)" data-size="Familiar" data-price="175" aria-label="Añadir Dashuri's (Pera) Familiar al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -303,7 +305,7 @@
                                     <div class="price-row">
                                         <span class="price-label">UNIDAD</span>
                                         <span class="price-value">$30</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Hotdog Sencillo" data-size="Unidad" data-price="30" aria-label="Añadir Hotdog Sencillo al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Hotdog Sencillo" data-size="Unidad" data-price="30" aria-label="Añadir Hotdog Sencillo al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -328,7 +330,7 @@
                                     <div class="price-row">
                                         <span class="price-label">UNIDAD</span>
                                         <span class="price-value">$35</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Hotdog con Tocino" data-size="Unidad" data-price="35" aria-label="Añadir Hotdog con Tocino al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Hotdog con Tocino" data-size="Unidad" data-price="35" aria-label="Añadir Hotdog con Tocino al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -353,7 +355,7 @@
                                     <div class="price-row">
                                         <span class="price-label">PORCIÓN</span>
                                         <span class="price-value">$35</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Nachos" data-size="Porción" data-price="35" aria-label="Añadir Nachos al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Nachos" data-size="Porción" data-price="35" aria-label="Añadir Nachos al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -378,7 +380,7 @@
                                     <div class="price-row">
                                         <span class="price-label">PORCIÓN</span>
                                         <span class="price-value">$40</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Nuggets" data-size="Porción" data-price="40" aria-label="Añadir Nuggets al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Nuggets" data-size="Porción" data-price="40" aria-label="Añadir Nuggets al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -403,7 +405,7 @@
                                     <div class="price-row">
                                         <span class="price-label">PORCIÓN</span>
                                         <span class="price-value">$30</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Pay de Limón" data-size="Porción" data-price="30" aria-label="Añadir Pay de Limón al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Pay de Limón" data-size="Porción" data-price="30" aria-label="Añadir Pay de Limón al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -428,7 +430,7 @@
                                     <div class="price-row">
                                         <span class="price-label">600ml</span>
                                         <span class="price-value">$20</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Refresco Chico" data-size="600ml" data-price="20" aria-label="Añadir Refresco Chico al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Refresco Chico" data-size="600ml" data-price="20" aria-label="Añadir Refresco Chico al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -453,7 +455,7 @@
                                     <div class="price-row">
                                         <span class="price-label">2lt</span>
                                         <span class="price-value">$35</span>
-                                        <button class="btn btn-primary add-to-cart" data-name="Refresco Grande" data-size="2lt" data-price="35" aria-label="Añadir Refresco Grande al carrito">+</button>
+                                        <button class="btn btn-primary add-to-cart" data-name="Refresco Grande" data-size="2lt" data-price="35" aria-label="Añadir Refresco Grande al carrito" data-tooltip="Añadir al carrito">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -497,7 +499,7 @@
                     <option value="Familiar">Familiar</option>
                 </select>
                 
-                <button id="add-combination" class="btn btn-secondary add-combination">Añadir combinación al carrito</button>
+                <button id="add-combination" class="btn btn-secondary add-combination" data-tooltip="Crear pizza combinada">Añadir combinación al carrito</button>
             </section>
 
             <!-- Carrito de Compras -->
@@ -510,6 +512,12 @@
                 <button class="btn btn-success send-order" id="send-order">ENVIAR PEDIDO POR WHATSAPP</button>
             </section>
         </main>
+    </div>
+
+    <!-- Modal para imágenes ampliadas -->
+    <div class="image-modal">
+        <span class="close-modal" tabindex="0" aria-label="Cerrar imagen">&times;</span>
+        <img src="" alt="Imagen ampliada">
     </div>
 
     <script src="script.js"></script>
