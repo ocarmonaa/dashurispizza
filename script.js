@@ -276,8 +276,8 @@ class PizzaApp {
         });
         
         message += `\n*Total: $${this.cart.calculateTotal().toFixed(2)}*\n\n`;
-        message += `*Instrucciones especiales:* \n\n`;
-        message += `*Por favor confírmenme el pedido y tiempo estimado de entrega*`;
+        //message += `*Instrucciones especiales:* \n\n`;
+        //message += `*Por favor confírmenme el pedido y tiempo estimado de entrega*`;
         
         const phoneNumber = '7226834501';
         const encodedMessage = encodeURIComponent(message);
