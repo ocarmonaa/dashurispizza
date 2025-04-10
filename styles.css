@@ -64,6 +64,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: var(--spacing-xs);
+    font-size: 0.9rem;
+    min-width: 40px;
 }
 
 .btn-primary {
@@ -310,15 +312,18 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--spacing-sm);
 }
 
 .price-label {
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
 .price-value {
     font-weight: 700;
     color: var(--primary-color);
+    font-size: 0.9rem;
 }
 
 /* Combinations */
@@ -362,6 +367,7 @@ body {
 .add-combination {
     width: 100%;
     margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
 }
 
 /* Cart */
@@ -395,19 +401,21 @@ body {
 .cart-item-name {
     flex: 1;
     margin-right: var(--spacing-lg);
+    font-size: 0.9rem;
 }
 
 .cart-item-price {
     font-weight: 600;
     margin-right: var(--spacing-md);
+    font-size: 0.9rem;
 }
 
 .remove-item {
     background-color: #f44336;
     color: white;
     border: none;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -415,6 +423,7 @@ body {
     justify-content: center;
     font-weight: bold;
     transition: all 0.3s ease;
+    font-size: 0.8rem;
 }
 
 .remove-item:hover {
@@ -431,6 +440,8 @@ body {
 
 .send-order {
     margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    font-size: 1rem;
 }
 
 .empty-cart {
@@ -459,6 +470,7 @@ body {
     box-shadow: var(--shadow-md);
     animation: fadeInOut 3s ease-in-out;
     opacity: 0;
+    font-size: 0.9rem;
 }
 
 @keyframes fadeInOut {
@@ -514,7 +526,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: var(--spacing-lg);
+        padding: var(--spacing-md);
     }
     
     .logo h1 {
@@ -547,17 +559,89 @@ body {
     .combination-controls {
         grid-template-columns: 1fr;
     }
+
+    .btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.8rem;
+        min-width: 30px;
+    }
+
+    .price-row {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .add-to-cart {
+        width: auto;
+    }
 }
 
 @media (max-width: 480px) {
-    .price-row {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-        align-items: flex-start;
+    .container {
+        padding: var(--spacing-sm);
     }
-    
+
+    .header-image {
+        height: 200px;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .slogan {
+        font-size: 1rem;
+    }
+
+    .pizza-card, .snack-card {
+        width: 260px;
+    }
+
+    .pizza-name, .snack-name {
+        font-size: 1.2rem;
+    }
+
+    .pizza-ingredients, .snack-description {
+        font-size: 0.85rem;
+    }
+
+    .price-row {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--spacing-xs);
+    }
+
+    .price-label, .price-value {
+        font-size: 0.8rem;
+    }
+
+    .btn {
+        padding: var(--spacing-xs);
+        font-size: 0.75rem;
+        min-width: 25px;
+    }
+
     .add-to-cart {
-        width: 100%;
+        width: auto;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .combination-select {
+        padding: var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+
+    .add-combination {
+        padding: var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+
+    .send-order {
+        padding: var(--spacing-sm);
+        font-size: 0.9rem;
     }
 }
 
