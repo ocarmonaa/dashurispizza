@@ -116,6 +116,34 @@ body {
     box-shadow: var(--shadow-sm);
 }
 
+.btn-tip {
+    background-color: #f8bbd0;
+    color: var(--dark-color);
+    margin: var(--spacing-xs);
+    flex: 1;
+}
+
+.btn-tip:hover {
+    background-color: #f48fb1;
+    transform: translateY(-2px);
+}
+
+.btn-tip[data-tip="0"] {
+    background-color: #e0e0e0;
+}
+
+.btn-tip[data-tip="10"] {
+    background-color: #ffcdd2;
+}
+
+.btn-tip[data-tip="15"] {
+    background-color: #ef9a9a;
+}
+
+.btn-tip[data-tip="20"] {
+    background-color: #e57373;
+}
+
 .floating-cart {
     position: fixed;
     top: var(--spacing-xl);
@@ -493,6 +521,26 @@ body {
     color: var(--secondary-color);
 }
 
+.tip-section {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md);
+    background-color: #f5f5f5;
+    border-radius: var(--border-radius-md);
+}
+
+.tip-title {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-color);
+    text-align: center;
+}
+
+.tip-options {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+}
+
 .pizza-container::-webkit-scrollbar,
 .snacks-container::-webkit-scrollbar,
 .cart-items::-webkit-scrollbar {
@@ -672,6 +720,15 @@ body {
     .add-to-cart {
         width: auto;
     }
+
+    .tip-options {
+        flex-wrap: wrap;
+    }
+
+    .btn-tip {
+        flex: 1 0 40%;
+        margin: var(--spacing-xs) 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -741,6 +798,10 @@ body {
         padding: var(--spacing-sm);
         font-size: 0.9rem;
     }
+
+    .btn-tip {
+        flex: 1 0 100%;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -757,6 +818,10 @@ body {
     .snacks-container::-webkit-scrollbar-track,
     .cart-items::-webkit-scrollbar-track {
         background: #2d2d2d;
+    }
+
+    .tip-section {
+        background-color: #2d2d2d;
     }
 }
 /* Fondo de página */
