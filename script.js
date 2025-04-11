@@ -1,6 +1,7 @@
 class ShoppingCart {
     constructor() {
         this.items = [];
+        this.tip = 0;
         this.notificationContainer = document.createElement('div');
         this.notificationContainer.className = 'notification-container';
         document.body.appendChild(this.notificationContainer);
@@ -23,18 +24,21 @@ class ShoppingCart {
 
     clearCart() {
         this.items = [];
+        this.tip = 0;
         this.updateUI();
         this.saveToLocalStorage();
     }
 
     calculateTotal() {
-        return this.items.reduce((sum, item) => sum + item.price, 0);
+        const subtotal = this.items.reduce((sum, item) => sum + item.price, 0);
+        return subtotal + this.tip;
     }
 
     updateUI() {
         const cartItemsElement = document.getElementById('cart-items');
         const cartTotalElement = document.getElementById('cart-total');
         const cartCount = document.getElementById('cartCount');
+        const tipSection = document.getElementById('tip-section');
 
         cartCount.textContent = this.items.length;
         
@@ -48,6 +52,7 @@ class ShoppingCart {
         if (this.items.length === 0) {
             cartItemsElement.innerHTML = '<div class="empty-cart shake">Tu carrito está vacío</div>';
             cartTotalElement.style.display = 'none';
+            tipSection.style.display = 'none';
             return;
         }
 
@@ -63,18 +68,36 @@ class ShoppingCart {
             cartItemsElement.appendChild(itemElement);
         });
 
-        cartTotalElement.textContent = `Total: $${this.calculateTotal().toFixed(2)}`;
+        // Mostrar sección de propina solo si hay items en el carrito
+        tipSection.style.display = 'block';
+        
+        // Actualizar total incluyendo propina
+        const subtotal = this.items.reduce((sum, item) => sum + item.price, 0);
+        let totalText = `Subtotal: $${subtotal.toFixed(2)}`;
+        
+        if (this.tip > 0) {
+            totalText += `<br>Propina: $${this.tip.toFixed(2)}`;
+        }
+        
+        totalText += `<br><strong>Total: $${this.calculateTotal().toFixed(2)}</strong>`;
+        
+        cartTotalElement.innerHTML = totalText;
         cartTotalElement.style.display = 'block';
     }
 
     saveToLocalStorage() {
-        localStorage.setItem('cart', JSON.stringify(this.items));
+        localStorage.setItem('cart', JSON.stringify({
+            items: this.items,
+            tip: this.tip
+        }));
     }
 
     loadFromLocalStorage() {
         const savedCart = localStorage.getItem('cart');
         if (savedCart) {
-            this.items = JSON.parse(savedCart);
+            const { items, tip } = JSON.parse(savedCart);
+            this.items = items || [];
+            this.tip = tip || 0;
             this.updateUI();
         }
     }
@@ -140,7 +163,15 @@ class ShoppingCart {
             message += `- ${item.name}: $${item.price.toFixed(2)}\n`;
         });
         
-        message += `\n*Total: $${this.calculateTotal().toFixed(2)}*\n\n`;
+        const subtotal = this.items.reduce((sum, item) => sum + item.price, 0);
+        
+        message += `\n*Subtotal: $${subtotal.toFixed(2)}*\n`;
+        
+        if (this.tip > 0) {
+            message += `*Propina: $${this.tip.toFixed(2)}*\n`;
+        }
+        
+        message += `*Total: $${this.calculateTotal().toFixed(2)}*\n\n`;
         message += `*Instrucciones especiales:* \n\n`;
         message += `*Por favor confírmenme el pedido y tiempo estimado de entrega*`;
         
@@ -162,6 +193,13 @@ class ShoppingCart {
         setTimeout(() => {
             cartElement.style.boxShadow = 'var(--shadow-sm)';
         }, 1000);
+    }
+
+    setTip(amount) {
+        this.tip = parseFloat(amount);
+        this.updateUI();
+        this.saveToLocalStorage();
+        this.showNotification(`💖 Propina de $${amount} añadida`);
     }
 }
 
@@ -227,6 +265,11 @@ class PizzaApp {
             if (e.target.classList.contains('remove-item')) {
                 const index = parseInt(e.target.dataset.index);
                 this.cart.removeItem(index);
+            }
+
+            if (e.target.classList.contains('btn-tip')) {
+                const tipAmount = e.target.dataset.tip;
+                this.cart.setTip(tipAmount);
             }
         });
 
