@@ -11,14 +11,12 @@ class ShoppingCart {
     addItem(name, price) {
         this.items.push({ name, price });
         this.updateUI();
-        this.saveToLocalStorage();
         this.showNotification(`✅ ${name} añadido al carrito`);
     }
 
     removeItem(index) {
         const removedItem = this.items.splice(index, 1)[0];
         this.updateUI();
-        this.saveToLocalStorage();
         this.showNotification(`🗑️ ${removedItem.name} eliminado`);
     }
 
@@ -26,7 +24,6 @@ class ShoppingCart {
         this.items = [];
         this.tip = 0;
         this.updateUI();
-        this.saveToLocalStorage();
     }
 
     calculateTotal() {
@@ -83,23 +80,6 @@ class ShoppingCart {
         
         cartTotalElement.innerHTML = totalText;
         cartTotalElement.style.display = 'block';
-    }
-
-    saveToLocalStorage() {
-        localStorage.setItem('cart', JSON.stringify({
-            items: this.items,
-            tip: this.tip
-        }));
-    }
-
-    loadFromLocalStorage() {
-        const savedCart = localStorage.getItem('cart');
-        if (savedCart) {
-            const { items, tip } = JSON.parse(savedCart);
-            this.items = items || [];
-            this.tip = tip || 0;
-            this.updateUI();
-        }
     }
 
     showNotification(message) {
@@ -198,7 +178,6 @@ class ShoppingCart {
     setTip(amount) {
         this.tip = parseFloat(amount);
         this.updateUI();
-        this.saveToLocalStorage();
         this.showNotification(`💖 Propina de $${amount} añadida`);
     }
 }
@@ -226,7 +205,6 @@ class PizzaApp {
         this.animateCards();
         this.setupImageLazyLoading();
         this.setupRatingSystem();
-        this.cart.loadFromLocalStorage();
         this.addBestSellerBadges();
         this.setupKeyboardNavigation();
     }
