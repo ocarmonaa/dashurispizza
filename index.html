@@ -503,13 +503,24 @@
             </section>
 
             <!-- Carrito de Compras -->
-            <!-- Carrito de Compras -->
             <section class="cart">
                 <h2 class="section-title">TU PEDIDO</h2>
                 <div class="cart-items" id="cart-items">
                     <div class="empty-cart">Tu carrito está vacío</div>
                 </div>
                 <div class="cart-total" id="cart-total" style="display: none;">Total: $0</div>
+                
+                <!-- Sección de Propina -->
+                <div class="tip-section" id="tip-section" style="display: none;">
+                    <h3 class="tip-title">¿Deseas agregar propina?</h3>
+                    <div class="tip-options">
+                        <button class="btn btn-tip" data-tip="0">Sin propina</button>
+                        <button class="btn btn-tip" data-tip="10">$10</button>
+                        <button class="btn btn-tip" data-tip="15">$15</button>
+                        <button class="btn btn-tip" data-tip="20">$20</button>
+                    </div>
+                </div>
+                
                 <button class="btn btn-success send-order" id="send-order">
                     <i class="fab fa-whatsapp"></i> ENVIAR PEDIDO POR WHATSAPP
                 </button>
