@@ -38,7 +38,7 @@ class ShoppingCart {
         const tipSection = document.getElementById('tip-section');
 
         cartCount.textContent = this.items.length;
-        
+
         if (this.items.length > 0) {
             cartCount.style.transform = 'scale(1.2)';
             setTimeout(() => {
@@ -67,17 +67,17 @@ class ShoppingCart {
 
         // Mostrar sección de propina solo si hay items en el carrito
         tipSection.style.display = 'block';
-        
+
         // Actualizar total incluyendo propina
         const subtotal = this.items.reduce((sum, item) => sum + item.price, 0);
         let totalText = `Subtotal: $${subtotal.toFixed(2)}`;
-        
+
         if (this.tip > 0) {
             totalText += `<br>Propina: $${this.tip.toFixed(2)}`;
         }
-        
+
         totalText += `<br><strong>Total: $${this.calculateTotal().toFixed(2)}</strong>`;
-        
+
         cartTotalElement.innerHTML = totalText;
         cartTotalElement.style.display = 'block';
     }
@@ -87,11 +87,11 @@ class ShoppingCart {
         notification.className = 'cart-notification';
         notification.textContent = message;
         this.notificationContainer.appendChild(notification);
-        
+
         setTimeout(() => {
             notification.style.opacity = '1';
             notification.style.transform = 'translateX(-50%) translateY(0)';
-            
+
             setTimeout(() => {
                 notification.style.opacity = '0';
                 notification.style.transform = 'translateX(-50%) translateY(20px)';
@@ -136,40 +136,40 @@ class ShoppingCart {
             this.showNotification('🛒 Tu carrito está vacío');
             return;
         }
-        
+
         let message = `¡Hola Dashuri's Pizza! Quiero hacer un pedido:\n\n*Mi pedido*\n`;
-        
+
         this.items.forEach(item => {
             message += `- ${item.name}: $${item.price.toFixed(2)}\n`;
         });
-        
+
         const subtotal = this.items.reduce((sum, item) => sum + item.price, 0);
-        
+
         message += `\n*Subtotal: $${subtotal.toFixed(2)}*\n`;
-        
+
         if (this.tip > 0) {
             message += `*Propina: $${this.tip.toFixed(2)}*\n`;
         }
-        
+
         message += `*Total: $${this.calculateTotal().toFixed(2)}*\n\n`;
-        message += `*Instrucciones especiales:* \n\n`;
-        message += `*Por favor confírmenme el pedido y tiempo estimado de entrega*`;
-        
+        message += `*GRACIAS:* \n\n`;
+        //message += `*Por favor confírmenme el pedido y tiempo estimado de entrega*`;
+
         const phoneNumber = '7226834501';
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-        
+
         window.open(whatsappUrl, '_blank');
     }
 
     scrollToCart() {
         const cartElement = document.querySelector('.cart');
-        cartElement.scrollIntoView({ 
+        cartElement.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
-        
-        cartElement.style.boxShadow = '0 0 15px rgba(211, 47, 47, 0.5)';
+
+        cartElement.style.boxShadow = '0 0 15px rgba(255, 140, 0, 0.5)';
         setTimeout(() => {
             cartElement.style.boxShadow = 'var(--shadow-sm)';
         }, 1000);
@@ -195,7 +195,7 @@ class PizzaApp {
             'Suprema': { 'Grande': 180, 'Familiar': 200 },
             'Dashuri\'s (Pera)': { 'Grande': 155, 'Familiar': 175 }
         };
-        
+
         this.bestSellers = ['Pepperoni', 'Hawaiana', 'Argentina'];
         this.init();
     }
@@ -239,7 +239,7 @@ class PizzaApp {
             if (e.target.classList.contains('add-to-cart')) {
                 this.handleAddToCart(e.target);
             }
-            
+
             if (e.target.classList.contains('remove-item')) {
                 const index = parseInt(e.target.dataset.index);
                 this.cart.removeItem(index);
@@ -274,7 +274,7 @@ class PizzaApp {
         const name = button.getAttribute('data-name');
         const size = button.getAttribute('data-size');
         const price = parseFloat(button.getAttribute('data-price'));
-        
+
         this.cart.addItem(`${name} (${size})`, price);
     }
 
@@ -282,7 +282,7 @@ class PizzaApp {
         const firstHalf = document.getElementById('first-half').value;
         const secondHalf = document.getElementById('second-half').value;
         const size = document.getElementById('combination-size').value;
-        
+
         const errors = this.validateCombination(firstHalf, secondHalf, size);
         if (errors.length > 0) {
             errors.forEach(error => this.cart.showNotification(`⚠️ ${error}`));
@@ -292,9 +292,9 @@ class PizzaApp {
         const firstPrice = this.pizzaPrices[firstHalf][size];
         const secondPrice = this.pizzaPrices[secondHalf][size];
         const price = Math.max(firstPrice, secondPrice);
-        
+
         this.cart.addItem(`Mitad ${firstHalf} / Mitad ${secondHalf} (${size})`, price);
-        
+
         document.getElementById('first-half').value = '';
         document.getElementById('second-half').value = '';
         document.getElementById('combination-size').value = '';
@@ -306,7 +306,7 @@ class PizzaApp {
         if (!second) errors.push("Selecciona la segunda mitad");
         if (!size) errors.push("Selecciona el tamaño");
         if (first && second && first === second) errors.push("Selecciona pizzas diferentes");
-        
+
         return errors;
     }
 
@@ -345,7 +345,7 @@ class PizzaApp {
                 const productName = e.target.closest('.pizza-card, .snack-card').querySelector('.pizza-name, .snack-name').textContent;
                 this.cart.showNotification(`⭐ Gracias por valorar ${productName} con ${value} estrellas`);
             });
-            
+
             star.addEventListener('mouseover', (e) => {
                 const value = e.target.dataset.value;
                 const stars = e.target.parentElement.querySelectorAll('.star');
@@ -353,7 +353,7 @@ class PizzaApp {
                     s.classList.toggle('active', i < value);
                 });
             });
-            
+
             star.addEventListener('mouseout', (e) => {
                 const stars = e.target.parentElement.querySelectorAll('.star');
                 stars.forEach(s => s.classList.remove('active'));
