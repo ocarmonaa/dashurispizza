@@ -1,4 +1,3 @@
-
 :root {
     --primary-color: #FF6B00;
     --primary-dark: #E55D00;
@@ -268,6 +267,7 @@ main {
     margin-bottom: var(--spacing-sm);
 }
 
+/* Ajustes para los botones en las tarjetas */
 .price-row {
     display: flex;
     justify-content: space-between;
@@ -275,17 +275,26 @@ main {
     gap: var(--spacing-sm);
     padding: var(--spacing-xs) 0;
     border-bottom: 1px dashed #eee;
+    min-height: 40px;
 }
 
-.price-row:last-child {
-    border-bottom: none;
+.price-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.price-label, .price-value {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .price-label {
     font-weight: 600;
     font-size: 0.9rem;
-    flex: 1;
-    min-width: 80px;
     color: var(--secondary-color);
 }
 
@@ -293,9 +302,17 @@ main {
     font-weight: 700;
     color: var(--primary-color);
     font-size: 1rem;
-    min-width: 50px;
     text-align: right;
-    margin-right: var(--spacing-sm);
+}
+
+.add-to-cart {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.8rem;
+    min-width: 80px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Button Styles */
@@ -796,12 +813,28 @@ main {
     margin-bottom: var(--spacing-xl);
 }
 
+/* Ajustes para los botones en el modal */
 .modal-price-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-sm) 0;
     border-bottom: 1px dashed #eee;
+    gap: var(--spacing-md);
+    min-height: 40px;
+}
+
+.modal-price-info {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    min-width: 0;
+}
+
+.modal-price-label, .modal-price-value {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .modal-price-label {
@@ -816,17 +849,20 @@ main {
     font-size: 1.1rem;
 }
 
+.modal-add-to-cart {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.8rem;
+    min-width: 80px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .modal-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-md);
-}
-
-.modal-add-to-cart {
-    width: 100%;
-    padding: var(--spacing-md);
-    font-size: 1rem;
-    border-radius: var(--border-radius-md);
 }
 
 /* Animations */
@@ -1015,28 +1051,5 @@ main {
 
     .modal-description {
         color: var(--text-color);
-    }
-
-        /* Estilos para los botones en el modal */
-    .modal-price-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: var(--spacing-sm) 0;
-        border-bottom: 1px dashed #eee;
-        gap: var(--spacing-md);
-    }
-
-    .modal-price-info {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-    }
-
-    .modal-add-to-cart {
-        padding: var(--spacing-xs) var(--spacing-sm);
-        font-size: 0.9rem;
-        min-width: auto;
-        white-space: nowrap;
     }
 }
