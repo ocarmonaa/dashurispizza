@@ -148,7 +148,6 @@ class ShoppingCart {
         
         // Limpiar precios y botones anteriores
         this.modalPrices.innerHTML = '';
-        this.modalButtons.innerHTML = '';
         
         // Agregar precios y botones al modal
         priceRows.forEach(row => {
@@ -160,10 +159,11 @@ class ShoppingCart {
             const priceRowElement = document.createElement('div');
             priceRowElement.className = 'modal-price-row';
             priceRowElement.innerHTML = `
-                <span class="modal-price-label">${priceLabel}</span>
-                <span class="modal-price-value">${priceValue}</span>
+                <div class="modal-price-info">
+                    <span class="modal-price-label">${priceLabel}</span>
+                    <span class="modal-price-value">${priceValue}</span>
+                </div>
             `;
-            this.modalPrices.appendChild(priceRowElement);
             
             // Configurar botón para el modal
             addButton.className = 'btn btn-primary modal-add-to-cart';
@@ -171,7 +171,9 @@ class ShoppingCart {
                 this.handleAddToCart(addButton);
                 this.productModal.classList.remove('active');
             });
-            this.modalButtons.appendChild(addButton);
+            
+            priceRowElement.appendChild(addButton);
+            this.modalPrices.appendChild(priceRowElement);
         });
         
         // Mostrar el modal
