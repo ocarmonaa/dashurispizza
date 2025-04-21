@@ -1,3 +1,4 @@
+
 :root {
     --primary-color: #FF6B00;
     --primary-dark: #E55D00;
@@ -1014,5 +1015,28 @@ main {
 
     .modal-description {
         color: var(--text-color);
+    }
+
+        /* Estilos para los botones en el modal */
+    .modal-price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-sm) 0;
+        border-bottom: 1px dashed #eee;
+        gap: var(--spacing-md);
+    }
+
+    .modal-price-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .modal-add-to-cart {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.9rem;
+        min-width: auto;
+        white-space: nowrap;
     }
 }
