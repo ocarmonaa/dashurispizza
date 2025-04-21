@@ -5,7 +5,7 @@ class ShoppingCart {
         this.notificationContainer = document.createElement('div');
         this.notificationContainer.className = 'notification-container';
         document.body.appendChild(this.notificationContainer);
-        this.setupModal();
+        this.setupProductModal();
     }
 
     addItem(name, price) {
@@ -102,33 +102,80 @@ class ShoppingCart {
         }, 10);
     }
 
-    setupModal() {
-        this.modal = document.createElement('div');
-        this.modal.className = 'image-modal';
-        this.modal.innerHTML = `
-            <span class="close-modal" tabindex="0" aria-label="Cerrar imagen">&times;</span>
-            <img src="" alt="Imagen ampliada">
-        `;
-        document.body.appendChild(this.modal);
+    setupProductModal() {
+        this.productModal = document.querySelector('.product-modal');
+        this.modalTitle = this.productModal.querySelector('.modal-title');
+        this.modalDescription = this.productModal.querySelector('.modal-description');
+        this.modalImage = this.productModal.querySelector('.modal-image');
+        this.modalPrices = this.productModal.querySelector('.modal-prices');
+        this.modalButtons = this.productModal.querySelector('.modal-buttons');
+        this.closeModal = this.productModal.querySelector('.close-modal');
 
-        this.modal.querySelector('.close-modal').addEventListener('click', () => {
-            this.modal.classList.remove('active');
+        // Configurar eventos del modal
+        this.closeModal.addEventListener('click', () => {
+            this.productModal.classList.remove('active');
         });
 
-        this.modal.addEventListener('click', (e) => {
-            if (e.target === this.modal) {
-                this.modal.classList.remove('active');
+        this.productModal.addEventListener('click', (e) => {
+            if (e.target === this.productModal) {
+                this.productModal.classList.remove('active');
             }
         });
 
+        // Configurar clic en imágenes de productos
         document.querySelectorAll('.pizza-image, .snack-image').forEach(img => {
             img.addEventListener('click', () => {
-                if (!img.src) return;
-                this.modal.querySelector('img').src = img.src;
-                this.modal.querySelector('img').alt = img.alt;
-                this.modal.classList.add('active');
+                this.showProductDetails(img);
             });
         });
+    }
+
+    showProductDetails(imgElement) {
+        if (!imgElement.src) return;
+        
+        // Obtener datos del producto
+        const productName = imgElement.dataset.name;
+        const productDescription = imgElement.dataset.ingredients;
+        const productImage = imgElement.src;
+        const productCard = imgElement.closest('.pizza-card, .snack-card');
+        const priceRows = productCard.querySelectorAll('.price-row');
+        
+        // Configurar el modal con los datos del producto
+        this.modalTitle.textContent = productName;
+        this.modalDescription.textContent = productDescription;
+        this.modalImage.src = productImage;
+        this.modalImage.alt = imgElement.alt;
+        
+        // Limpiar precios y botones anteriores
+        this.modalPrices.innerHTML = '';
+        this.modalButtons.innerHTML = '';
+        
+        // Agregar precios y botones al modal
+        priceRows.forEach(row => {
+            const priceLabel = row.querySelector('.price-label').textContent;
+            const priceValue = row.querySelector('.price-value').textContent;
+            const addButton = row.querySelector('.add-to-cart').cloneNode(true);
+            
+            // Crear fila de precio en el modal
+            const priceRowElement = document.createElement('div');
+            priceRowElement.className = 'modal-price-row';
+            priceRowElement.innerHTML = `
+                <span class="modal-price-label">${priceLabel}</span>
+                <span class="modal-price-value">${priceValue}</span>
+            `;
+            this.modalPrices.appendChild(priceRowElement);
+            
+            // Configurar botón para el modal
+            addButton.className = 'btn btn-primary modal-add-to-cart';
+            addButton.addEventListener('click', () => {
+                this.handleAddToCart(addButton);
+                this.productModal.classList.remove('active');
+            });
+            this.modalButtons.appendChild(addButton);
+        });
+        
+        // Mostrar el modal
+        this.productModal.classList.add('active');
     }
 
     sendWhatsAppOrder() {
@@ -169,7 +216,7 @@ class ShoppingCart {
             block: 'start'
         });
 
-        cartElement.style.boxShadow = '0 0 15px rgba(255, 140, 0, 0.5)';
+        cartElement.style.boxShadow = '0 0 15px rgba(255, 107, 0, 0.5)';
         setTimeout(() => {
             cartElement.style.boxShadow = 'var(--shadow-sm)';
         }, 1000);
@@ -179,6 +226,14 @@ class ShoppingCart {
         this.tip = parseFloat(amount);
         this.updateUI();
         this.showNotification(`💖 Propina de $${amount} añadida`);
+    }
+
+    handleAddToCart(button) {
+        const name = button.getAttribute('data-name');
+        const size = button.getAttribute('data-size');
+        const price = parseFloat(button.getAttribute('data-price'));
+
+        this.addItem(`${name} (${size})`, price);
     }
 }
 
@@ -237,7 +292,7 @@ class PizzaApp {
     setupEventListeners() {
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('add-to-cart')) {
-                this.handleAddToCart(e.target);
+                this.cart.handleAddToCart(e.target);
             }
 
             if (e.target.classList.contains('remove-item')) {
@@ -265,17 +320,9 @@ class PizzaApp {
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                document.querySelector('.image-modal')?.classList.remove('active');
+                document.querySelector('.product-modal')?.classList.remove('active');
             }
         });
-    }
-
-    handleAddToCart(button) {
-        const name = button.getAttribute('data-name');
-        const size = button.getAttribute('data-size');
-        const price = parseFloat(button.getAttribute('data-price'));
-
-        this.cart.addItem(`${name} (${size})`, price);
     }
 
     handleAddCombination() {
