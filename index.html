@@ -6,10 +6,8 @@
     <title>Dashuri's Pizza</title>
     <meta name="theme-color" content="#FF8C00">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style">
 </head>
 <body>
     <!-- Carrito flotante -->
@@ -40,7 +38,7 @@
                     <div class="pizza-grid">
                         <!-- Pizza 1: Pepperoni -->
                         <article class="pizza-card" data-category="carnes">
-                            <img data-src="https://i.ibb.co/jZ4J5jDp/PEPPERONI.jpg" alt="Pizza Pepperoni" class="pizza-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/jZ4J5jDp/PEPPERONI.jpg" alt="Pizza Pepperoni" class="pizza-image" loading="lazy" data-name="PEPPERONI" data-ingredients="Queso mozzarella y pepperoni">
                             <div class="pizza-content">
                                 <header>
                                     <h3 class="pizza-name">PEPPERONI</h3>
@@ -70,7 +68,7 @@
 
                         <!-- Pizza 2: Hawaiana -->
                         <article class="pizza-card" data-category="carnes">
-                            <img data-src="https://i.ibb.co/W9drVpg/HAWAIANA.jpg" alt="Pizza Hawaiana" class="pizza-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/W9drVpg/HAWAIANA.jpg" alt="Pizza Hawaiana" class="pizza-image" loading="lazy" data-name="HAWAIANA" data-ingredients="Queso mozzarella, jamón y piña">
                             <div class="pizza-content">
                                 <header>
                                     <h3 class="pizza-name">HAWAIANA</h3>
@@ -100,7 +98,7 @@
 
                         <!-- Pizza 3: Margarita -->
                         <article class="pizza-card" data-category="vegetales">
-                            <img data-src="https://i.ibb.co/274Nhxng/MARGARITA.jpg" alt="Pizza Margarita" class="pizza-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/274Nhxng/MARGARITA.jpg" alt="Pizza Margarita" class="pizza-image" loading="lazy" data-name="MARGARITA" data-ingredients="Queso mozzarella, jitomate, albahaca, aceituna negra, queso de cabra">
                             <div class="pizza-content">
                                 <header>
                                     <h3 class="pizza-name">MARGARITA</h3>
@@ -130,7 +128,7 @@
 
                         <!-- Pizza 4: Argentina -->
                         <article class="pizza-card" data-category="carnes">
-                            <img data-src="https://i.ibb.co/hRbvR0QP/ARGENTINA.jpg" alt="Pizza Argentina" class="pizza-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/hRbvR0QP/ARGENTINA.jpg" alt="Pizza Argentina" class="pizza-image" loading="lazy" data-name="ARGENTINA" data-ingredients="Queso mozzarella, chorizo argentino, pimiento morrón y granos de elote">
                             <div class="pizza-content">
                                 <header>
                                     <h3 class="pizza-name">ARGENTINA</h3>
@@ -160,7 +158,7 @@
 
                         <!-- Pizza 5: Trópico -->
                         <article class="pizza-card" data-category="mariscos">
-                            <img data-src="https://i.ibb.co/SwN4z45Y/TROPICO.jpg" alt="Pizza Trópico" class="pizza-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/SwN4z45Y/TROPICO.jpg" alt="Pizza Trópico" class="pizza-image" loading="lazy" data-name="TRÓPICO" data-ingredients="Queso mozzarella, camarón y piña">
                             <div class="pizza-content">
                                 <header>
                                     <h3 class="pizza-name">TRÓPICO</h3>
@@ -190,7 +188,7 @@
 
                         <!-- Pizza 6: 5 Quesos -->
                         <article class="pizza-card" data-category="quesos">
-                            <img data-src="https://i.ibb.co/bg84JfYr/5-QUESOS.jpg" alt="Pizza 5 Quesos" class="pizza-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/bg84JfYr/5-QUESOS.jpg" alt="Pizza 5 Quesos" class="pizza-image" loading="lazy" data-name="5 QUESOS" data-ingredients="Quesos mozzarella, cheddar, suizo, gouda y havarti">
                             <div class="pizza-content">
                                 <header>
                                     <h3 class="pizza-name">5 QUESOS</h3>
@@ -220,7 +218,7 @@
 
                         <!-- Pizza 7: Suprema -->
                         <article class="pizza-card" data-category="especiales">
-                            <img data-src="https://i.ibb.co/YFKc2n9h/SUPREMA.jpg" alt="Pizza Suprema" class="pizza-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/YFKc2n9h/SUPREMA.jpg" alt="Pizza Suprema" class="pizza-image" loading="lazy" data-name="SUPREMA" data-ingredients="Queso mozzarella, jamón serrano, arúgula, aceituna negra, jitomate cherry">
                             <div class="pizza-content">
                                 <header>
                                     <h3 class="pizza-name">SUPREMA</h3>
@@ -250,7 +248,7 @@
 
                         <!-- Pizza 8: Dashuri's -->
                         <article class="pizza-card" data-category="dulces">
-                            <img data-src="https://i.ibb.co/xKrwdZZh/DASHURIS.jpg" alt="Pizza Dashuri's" class="pizza-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/xKrwdZZh/DASHURIS.jpg" alt="Pizza Dashuri's" class="pizza-image" loading="lazy" data-name="DASHURI'S (PERA)" data-ingredients="Pera, queso philadelphia, queso de cabra, nuez, azúcar mascabada y canela">
                             <div class="pizza-content">
                                 <header>
                                     <h3 class="pizza-name">DASHURI'S (PERA)</h3>
@@ -288,7 +286,7 @@
                     <div class="snacks-grid">
                         <!-- Hotdog Sencillo -->
                         <article class="snack-card" data-category="snacks">
-                            <img data-src="https://i.ibb.co/FkfmDcMH/HCENCILLO.jpg" alt="Hotdog Sencillo" class="snack-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/FkfmDcMH/HCENCILLO.jpg" alt="Hotdog Sencillo" class="snack-image" loading="lazy" data-name="HOTDOG SENCILLO" data-ingredients="Delicioso hotdog con todos los ingredientes tradicionales">
                             <div class="snack-content">
                                 <header>
                                     <h3 class="snack-name">HOTDOG SENCILLO</h3>
@@ -313,7 +311,7 @@
 
                         <!-- Hotdog con Tocino -->
                         <article class="snack-card" data-category="snacks">
-                            <img data-src="https://i.ibb.co/v4gCvStq/HTOCINO.jpg" alt="Hotdog con Tocino" class="snack-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/v4gCvStq/HTOCINO.jpg" alt="Hotdog con Tocino" class="snack-image" loading="lazy" data-name="HOTDOG CON TOCINO" data-ingredients="Hotdog con crujiente tocino y todos los ingredientes tradicionales">
                             <div class="snack-content">
                                 <header>
                                     <h3 class="snack-name">HOTDOG CON TOCINO</h3>
@@ -338,7 +336,7 @@
 
                         <!-- Nachos -->
                         <article class="snack-card" data-category="snacks">
-                            <img data-src="https://i.ibb.co/HT7c0khB/NACHOS.jpg" alt="Nachos" class="snack-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/HT7c0khB/NACHOS.jpg" alt="Nachos" class="snack-image" loading="lazy" data-name="NACHOS" data-ingredients="Crujientes nachos con queso derretido y chiles">
                             <div class="snack-content">
                                 <header>
                                     <h3 class="snack-name">NACHOS</h3>
@@ -363,7 +361,7 @@
 
                         <!-- Nuggets -->
                         <article class="snack-card" data-category="snacks">
-                            <img data-src="https://i.ibb.co/Nn9ygSDT/NUGGETS.jpg" alt="Nuggets" class="snack-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/Nn9ygSDT/NUGGETS.jpg" alt="Nuggets" class="snack-image" loading="lazy" data-name="NUGGETS" data-ingredients="Crujientes nuggets de pollo acompañados de salsa catsup">
                             <div class="snack-content">
                                 <header>
                                     <h3 class="snack-name">NUGGETS</h3>
@@ -388,7 +386,7 @@
 
                         <!-- Pay de Limón -->
                         <article class="snack-card" data-category="postres">
-                            <img data-src="https://i.ibb.co/LhYNWXN1/PAY.jpg" alt="Pay de Limón" class="snack-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/LhYNWXN1/PAY.jpg" alt="Pay de Limón" class="snack-image" loading="lazy" data-name="PAY DE LIMÓN" data-ingredients="Delicioso pay de limón con base de galleta">
                             <div class="snack-content">
                                 <header>
                                     <h3 class="snack-name">PAY DE LIMÓN</h3>
@@ -413,7 +411,7 @@
 
                         <!-- Refresco Chico -->
                         <article class="snack-card" data-category="bebidas">
-                            <img data-src="https://i.ibb.co/35ZwNQMZ/RCHICO.jpg" alt="Refresco Chico" class="snack-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/35ZwNQMZ/RCHICO.jpg" alt="Refresco Chico" class="snack-image" loading="lazy" data-name="REFRESCO CHICO" data-ingredients="Refresco de chico en varios sabores">
                             <div class="snack-content">
                                 <header>
                                     <h3 class="snack-name">REFRESCO CHICO</h3>
@@ -438,7 +436,7 @@
 
                         <!-- Refresco Grande -->
                         <article class="snack-card" data-category="bebidas">
-                            <img data-src="https://i.ibb.co/Y7QYd57k/RGRANDE.jpg" alt="Refresco Grande" class="snack-image" loading="lazy">
+                            <img data-src="https://i.ibb.co/Y7QYd57k/RGRANDE.jpg" alt="Refresco Grande" class="snack-image" loading="lazy" data-name="REFRESCO GRANDE" data-ingredients="Refresco de 2lt en varios sabores">
                             <div class="snack-content">
                                 <header>
                                     <h3 class="snack-name">REFRESCO GRANDE</h3>
@@ -528,10 +526,20 @@
         </main>
     </div>
 
-    <!-- Modal para imágenes ampliadas -->
-    <div class="image-modal">
-        <span class="close-modal" tabindex="0" aria-label="Cerrar imagen">&times;</span>
-        <img src="" alt="Imagen ampliada">
+    <!-- Modal para productos ampliados -->
+    <div class="product-modal">
+        <div class="modal-content">
+            <span class="close-modal" tabindex="0" aria-label="Cerrar modal">&times;</span>
+            <div class="modal-image-container">
+                <img src="" alt="Imagen del producto" class="modal-image">
+            </div>
+            <div class="modal-details">
+                <h2 class="modal-title"></h2>
+                <p class="modal-description"></p>
+                <div class="modal-prices"></div>
+                <div class="modal-buttons"></div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
