@@ -65,10 +65,8 @@ class ShoppingCart {
             cartItemsElement.appendChild(itemElement);
         });
 
-        // Mostrar sección de propina solo si hay items en el carrito
         tipSection.style.display = 'block';
 
-        // Actualizar total incluyendo propina
         const subtotal = this.items.reduce((sum, item) => sum + item.price, 0);
         let totalText = `Subtotal: $${subtotal.toFixed(2)}`;
 
@@ -111,7 +109,6 @@ class ShoppingCart {
         this.modalButtons = this.productModal.querySelector('.modal-buttons');
         this.closeModal = this.productModal.querySelector('.close-modal');
 
-        // Configurar eventos del modal
         this.closeModal.addEventListener('click', () => {
             this.productModal.classList.remove('active');
         });
@@ -122,7 +119,6 @@ class ShoppingCart {
             }
         });
 
-        // Configurar clic en imágenes de productos
         document.querySelectorAll('.pizza-image, .snack-image').forEach(img => {
             img.addEventListener('click', () => {
                 this.showProductDetails(img);
@@ -133,29 +129,23 @@ class ShoppingCart {
     showProductDetails(imgElement) {
         if (!imgElement.src) return;
         
-        // Obtener datos del producto
         const productName = imgElement.dataset.name;
         const productDescription = imgElement.dataset.ingredients;
         const productImage = imgElement.src;
         const productCard = imgElement.closest('.pizza-card, .snack-card');
         const priceRows = productCard.querySelectorAll('.price-row');
         
-        // Configurar el modal con los datos del producto
         this.modalTitle.textContent = productName;
         this.modalDescription.textContent = productDescription;
         this.modalImage.src = productImage;
         this.modalImage.alt = imgElement.alt;
-        
-        // Limpiar precios y botones anteriores
         this.modalPrices.innerHTML = '';
         
-        // Agregar precios y botones al modal
         priceRows.forEach(row => {
             const priceLabel = row.querySelector('.price-label').textContent;
             const priceValue = row.querySelector('.price-value').textContent;
             const addButton = row.querySelector('.add-to-cart').cloneNode(true);
             
-            // Crear fila de precio en el modal
             const priceRowElement = document.createElement('div');
             priceRowElement.className = 'modal-price-row';
             priceRowElement.innerHTML = `
@@ -165,7 +155,6 @@ class ShoppingCart {
                 </div>
             `;
             
-            // Configurar botón para el modal
             addButton.className = 'btn btn-primary modal-add-to-cart';
             addButton.addEventListener('click', () => {
                 this.handleAddToCart(addButton);
@@ -176,7 +165,6 @@ class ShoppingCart {
             this.modalPrices.appendChild(priceRowElement);
         });
         
-        // Mostrar el modal
         this.productModal.classList.add('active');
     }
 
@@ -202,7 +190,6 @@ class ShoppingCart {
 
         message += `*Total: $${this.calculateTotal().toFixed(2)}*\n\n`;
         message += `*GRACIAS:* \n\n`;
-        //message += `*Por favor confírmenme el pedido y tiempo estimado de entrega*`;
 
         const phoneNumber = '7226834501';
         const encodedMessage = encodeURIComponent(message);
